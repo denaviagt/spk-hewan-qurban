@@ -20,3 +20,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 });
+
+Route::get('/kriteria', function () {
+    return view('kriteria.index');
+});
+Route::get('/hewan', function () {
+    return view('hewan.index');
+});
+Route::get('/hewan/add', function () {
+    return view('hewan.add');
+});
