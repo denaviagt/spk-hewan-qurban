@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Criteria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,7 @@ Route::group([ 'middleware' => 'auth'], function () {
     });
 
     Route::get('/kriteria', function () {
-        return view('kriteria.index');
+        return view('kriteria.index', ["data" => Criteria::all()]);
     });
     Route::get('/hewan', function () {
         return view('hewan.index');
