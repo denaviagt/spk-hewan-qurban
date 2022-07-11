@@ -26,15 +26,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($animals as $animal)
                                 <tr>
-                                    <td>S1</td>
-                                    <td>0.5</td>
-                                    <td>0.7</td>
-                                    <td>0.1</td>
-                                    <td>1</td>
-                                    <td>0</td>
+                                    <td>{{ $animal->name }}</td>
+                                    @foreach($animal->criteriaAnimals as $criteriaAnimal)
+                                        <td>
+                                            {{ $criteriaAnimal->score }}
+                                        </td>
+                                    @endforeach
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -52,7 +53,7 @@
                                 <tr>
                                     <th> Nama Kriteria </th>
                                     <th> Type </th>
-                                    <th> Bobot </th>         
+                                    <th> Bobot </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,7 +63,7 @@
                                         <td>{{ $item->type }}</td>
                                         <td>{{ $item->weight }}%</td>
                                     </tr>
-                                @endforeach                        
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -90,15 +91,16 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($animals as $animal)
                                 <tr>
-                                    <td>S1</td>
-                                    <td>0.5</td>
-                                    <td>0.7</td>
-                                    <td>0.1</td>
-                                    <td>1</td>
-                                    <td>0</td>
+                                    <td>{{ $animal->name }}</td>
+                                    @foreach($animal->criteriaAnimals as $criteriaAnimal)
+                                        <td>
+                                            {{ $criteriaAnimal->criteria->type == "Benefit" ? $criteriaAnimal->score / $animal->criteriaAnimals->where('animal_id', $animal->id)->max("score") : $animal->criteriaAnimals->where('animal_id', $animal->id)->min("score")/$criteriaAnimal->score }}
+                                        </td>
+                                    @endforeach
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -120,12 +122,21 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($animals->orderBy(function ($anim){
+                                    return  $animal->criteriaAnimals->sum(function ($crAn) use($animal) {
+                                                return ($crAn->criteria->type == "Benefit" ? $crAn->score / $animal->criteriaAnimals->where('animal_id', $animal->id)->max("score") : $animal->criteriaAnimals->where('animal_id', $animal->id)->min("score")/$crAn->score) * ($crAn->criteria->weight/100);
+                                            });
+}) as $animal)
                                 <tr>
-                                    <td>1</td>
-                                    <td>S1</td>
-                                    <td>0987</td>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $animal->name }}</td>
+                                    <td>
+                                        {{ $animal->criteriaAnimals->sum(function ($crAn) use($animal) {
+                                                return ($crAn->criteria->type == "Benefit" ? $crAn->score / $animal->criteriaAnimals->where('animal_id', $animal->id)->max("score") : $animal->criteriaAnimals->where('animal_id', $animal->id)->min("score")/$crAn->score) * ($crAn->criteria->weight/100);
+                                            })  }}
+                                    </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
