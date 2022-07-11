@@ -17,8 +17,8 @@ class CreateCriteriaAnimalsTable extends Migration
     {
         Schema::create('criteria_animals', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Animal::class);
-            $table->foreignIdFor(Criteria::class);
+            $table->foreignIdFor(Animal::class)->constrained();
+            $table->foreignIdFor(Criteria::class)->constrained();
             $table->string("value");
             $table->float("score");
             $table->timestamps();

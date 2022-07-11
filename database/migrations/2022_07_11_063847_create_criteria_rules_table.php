@@ -16,7 +16,7 @@ class CreateCriteriaRulesTable extends Migration
     {
         Schema::create('criteria_rules', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Criteria::class);
+            $table->foreignIdFor(Criteria::class)->constrained();
             $table->enum("type", ["Benefit","Cost"]);
             $table->string("rule");
             $table->timestamps();
