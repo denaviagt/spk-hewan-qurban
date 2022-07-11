@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Animal;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -15,7 +16,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UserSeeder::class,
-            CriteriaSeeder::class
+            CriteriaSeeder::class,
+            AnimalTypeSeeder::class,
+            AnimalSeeder::class,
+            CriteriaAnimalSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();
     }
