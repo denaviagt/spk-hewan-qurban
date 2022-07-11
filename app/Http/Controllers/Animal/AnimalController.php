@@ -148,7 +148,7 @@ class AnimalController extends Controller
     private function scoreWarna($Warna)
     {
         if('putih' == strtolower($Warna)) return 1;
-        if ('abu-abu' == strtolower($Warna)) return 0.75;
+        if('coklat' == strtolower($Warna)) return 0.75;
         if ('hitam' == strtolower($Warna)) return 0.5;
         return 0.25;
     }
