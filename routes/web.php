@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Animal\AnimalController;
 use App\Models\Criteria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,12 +32,9 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::get('/kriteria', function () {
         return view('kriteria.index', ["data" => Criteria::all()]);
     });
-    Route::get('/hewan', function () {
-        return view('hewan.index');
-    });
-    Route::get('/hewan/add', function () {
-        return view('hewan.add');
-    });
+    Route::get('/hewan', [AnimalController::class, 'index']);
+    Route::get('/hewan/add', [AnimalController::class, 'create']);
+    Route::post('/hewan/add', [AnimalController::class, 'store']);
 });
 
 
