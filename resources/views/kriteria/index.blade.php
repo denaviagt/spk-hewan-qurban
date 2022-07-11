@@ -35,26 +35,48 @@
                                 </tr>
                             </thead>
                             <tbody>
+{{--                                <tr>--}}
+{{--                                    <td class="py-1">--}}
+{{--                                        1--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        C1--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        Umur--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        Benefit--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        Tahun--}}
+{{--                                    </td>--}}
+{{--                                    <td>--}}
+{{--                                        20%--}}
+{{--                                    </td>--}}
+{{--                                </tr>--}}
+                                @foreach($data as $criteria)
                                 <tr>
                                     <td class="py-1">
-                                        1
+                                        {{ $loop->iteration }}
                                     </td>
                                     <td>
                                         C1
                                     </td>
                                     <td>
-                                        Umur
+                                        {{ $criteria->criteria }}
                                     </td>
                                     <td>
-                                        Benefit
+                                        {{ $criteria->type }}
                                     </td>
                                     <td>
                                         Tahun
                                     </td>
                                     <td>
-                                        20%
+                                        {{ $criteria->weight }}%
                                     </td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
