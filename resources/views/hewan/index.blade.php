@@ -37,21 +37,25 @@
                                     <th>
                                         Foto
                                     </th>
+                                    @foreach($criterias as $criteria)
                                     <th>
-                                        Umur
+                                        {{ $criteria->criteria }}
                                     </th>
-                                    <th>
-                                        Berat
-                                    </th>
-                                    <th>
-                                        Warna
-                                    </th>
-                                    <th>
-                                        Jenis Kelamin
-                                    </th>
-                                    <th>
-                                        Bebas PMK
-                                    </th>
+                                    @endforeach
+{{--                                        Umur--}}
+{{--                                    </th>--}}
+{{--                                    <th>--}}
+{{--                                        Berat--}}
+{{--                                    </th>--}}
+{{--                                    <th>--}}
+{{--                                        Warna--}}
+{{--                                    </th>--}}
+{{--                                    <th>--}}
+{{--                                        Jenis Kelamin--}}
+{{--                                    </th>--}}
+{{--                                    <th>--}}
+{{--                                        Bebas PMK--}}
+{{--                                    </th>--}}
                                     <th>
                                         Action
                                     </th>
@@ -98,6 +102,38 @@
 
                                     </td>
                                 </tr>
+                                @foreach($animals as $animal)
+                                <tr>
+                                    <td class="py-1">
+                                        {{ $loop->iteration }}
+                                    </td>
+                                    <td>
+                                        {{ $animal->name }}
+                                    </td>
+                                    <td>
+                                        {{ $animal->animalType->name }}
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset('assets/img/face.jpg') }}" alt="">
+                                    </td>
+                                    @foreach($animal->criteriaAnimals as $criteriaAnimal)
+                                    <td>
+                                        {{ $criteriaAnimal->value }}
+                                    </td>
+                                    @endforeach
+                                    <td>
+                                        <a href="" class="btn btn-info btn-rounded btn-icon p-2"
+                                            style="width:36px !important; height:36px !important">
+                                            <i class="ti-pencil-alt"></i>
+                                        </a>
+                                        <a href="" class="btn btn-danger btn-rounded btn-icon p-2"
+                                            style="width:36px !important; height:36px !important">
+                                            <i class="mdi mdi-delete"></i>
+                                        </a>
+
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
