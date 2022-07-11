@@ -13,18 +13,18 @@
                     <p class="card-description">
                         Isikan Data Berikut dengan Benar!
                     </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" >
+                        @csrf
                         <div class="form-group">
                             <label for="nama_hewan">Nama Hewan</label>
                             <input type="text" class="form-control" id="nama_hewan" name="nama_hewan" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="tipe_hewan">Tipe Hewan</label>
-                            <select class="form-control" id="tipe_hewan">
-                                <option>Sapi</option>
-                                <option>Kambing</option>
-                                <option>Domba</option>
-                                <option>Unta</option>
+                            <select class="form-control" id="tipe_hewan" name="tipe_hewan">
+                                @foreach($animal_types as $animal_type)
+                                <option value="{{$animal_type->id}}">{{ $animal_type->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group">
                             <label for="warna">Warna</label>
-                            <select class="form-control" id="warna">
+                            <select class="form-control" id="warna" name="warna">
                                 <option>Putih</option>
                                 <option>Coklat</option>
                                 <option>Abu</option>
@@ -60,14 +60,14 @@
                         </div>
                         <div class="form-group">
                             <label for="jkel">Jenis Kelamin</label>
-                            <select class="form-control" id="jkel">
+                            <select class="form-control" id="jkel" name="jkel">
                                 <option>Jantan</option>
                                 <option>Betina</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="jkel">Bebas PMK</label>
-                            <select class="form-control" id="jkel">
+                            <label for="free_pmk">Bebas PMK</label>
+                            <select class="form-control" id="free_pmk" name="bebas_pmk">
                                 <option>Ya</option>
                                 <option>Tidak</option>
                             </select>
