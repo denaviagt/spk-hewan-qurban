@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Animal\AnimalController;
+use App\Http\Controllers\Perankingan\PerankinganController;
 use App\Models\Criteria;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,8 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::get('/hewan', [AnimalController::class, 'index']);
     Route::get('/hewan/add', [AnimalController::class, 'create']);
     Route::post('/hewan/add', [AnimalController::class, 'store']);
+
+    Route::get('/perankingan', [PerankinganController::class, 'index']);
 });
 
 

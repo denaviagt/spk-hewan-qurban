@@ -20,9 +20,9 @@
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="{{ url('perankingan') }}">
                    <i class="icon-columns menu-icon"></i>
-                   <span class="menu-title">Penilaian</span>
+                   <span class="menu-title">Perankingan</span>
                </a>
            </li>
            <li class="nav-item">
