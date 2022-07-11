@@ -20,6 +20,7 @@ class CreateCriteriaAnimalsTable extends Migration
             $table->foreignIdFor(Animal::class);
             $table->foreignIdFor(Criteria::class);
             $table->string("value");
+            $table->float("score");
             $table->timestamps();
         });
     }
