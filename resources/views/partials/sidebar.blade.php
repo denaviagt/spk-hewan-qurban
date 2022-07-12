@@ -8,28 +8,28 @@
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="{{ url('kriteria') }}">
+               <a class="nav-link" href="{{ route('kriteria') }}">
                    <i class="icon-layout menu-icon"></i>
                    <span class="menu-title">Kriteria</span>
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="{{ url('hewan') }}">
+               <a class="nav-link" href="{{ route('animals')}}">
                    <i class="mdi mdi-cow menu-icon"></i>
                    <span class="menu-title">Daftar Hewan</span>
                </a>
            </li>
            <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#perankingan" aria-expanded="false" aria-controls="tables">
+            <a class="nav-link" data-toggle="collapse" href="#perankingan" aria-expanded="false" aria-controls="perankingan">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Perankingan</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="perankingan">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/1') }}"> Sapi </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/2') }}"> Kambing </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/3') }}"> Domba </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('/1/perankingan') }}"> Sapi </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('/2/perankingan') }}"> Kambing </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('/3/perankingan') }}"> Domba </a></li>
               </ul>
             </div>
           </li>

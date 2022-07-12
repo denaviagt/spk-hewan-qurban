@@ -5,7 +5,13 @@
 @section('content')
 
     <div class="content-wrapper">
-
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
+              <li class="breadcrumb-item active"><a href="{{ url('/hewan') }}">Daftar Hewan</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Tambah data</li>
+            </ol>
+          </nav>
         <div class="col-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -13,7 +19,7 @@
                     <p class="card-description">
                         Isikan Data Berikut dengan Benar!
                     </p>
-                    <form class="forms-sample" method="post" >
+                    <form class="forms-sample" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="nama_hewan">Nama Hewan</label>

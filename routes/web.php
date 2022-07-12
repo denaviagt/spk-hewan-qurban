@@ -22,7 +22,6 @@ Auth::routes(['register' => false]);
 
 Route::group([ 'middleware' => 'auth'], function () {
     Route::get('/', function () {
-        // return view('welcome');
         return view('dashboard.index');
     });
 
@@ -32,12 +31,12 @@ Route::group([ 'middleware' => 'auth'], function () {
 
     Route::get('/kriteria', function () {
         return view('kriteria.index', ["data" => Criteria::all()]);
-    });
-    Route::get('/hewan', [AnimalController::class, 'index']);
-    Route::get('/hewan/add', [AnimalController::class, 'create']);
-    Route::post('/hewan/add', [AnimalController::class, 'store']);
+    })->name('kriteria');
+    Route::get('/hewan', [AnimalController::class, 'index'])->name('animals');
+    Route::get('/hewan/add', [AnimalController::class, 'create'])->name('animal.create');
+    Route::post('/hewan/add', [AnimalController::class, 'store'])->name('animal.store');
 
-    Route::get('/perankingan/{id}', [PerankinganController::class, 'show']);
+    Route::get('{id}/perankingan/', [PerankinganController::class, 'show']);
 });
 
 

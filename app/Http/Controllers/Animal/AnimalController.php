@@ -47,11 +47,17 @@ class AnimalController extends Controller
         $warna = $request->warna;
         $jenisKelamin = $request->jkel;
         $bebasPMK = $request->bebas_pmk;
+        
+        $imageName = time().'.'.$request->image->getClientOriginalName();  
+     
+        $request->image->move(public_path('images'), $imageName);
 
         $animalType = AnimalType::find($tipe_hewan);
         $animal = $animalType->animals()->create([
-            'name' => $nama_hewan,
-            'user_id' => auth()->id()
+            'name'      => $nama_hewan,
+            'image'     => $imageName,
+            'user_id'   => auth()->id(),
+           
         ]);
 
         $criteriaAnimals = $animal->criteriaAnimals()->createMany([

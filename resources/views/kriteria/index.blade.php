@@ -5,7 +5,12 @@
 @section('content')
 
     <div class="content-wrapper">
-
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Kriteria</li>
+            </ol>
+          </nav>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">

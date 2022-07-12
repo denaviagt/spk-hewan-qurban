@@ -18,6 +18,7 @@ class CreateAnimalsTable extends Migration
         Schema::create('animals', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+            $table->string("image");
             $table->foreignIdFor(AnimalType::class)->constrained();
             $table->foreignIdFor(User::class)->constrained();
             $table->timestamps();

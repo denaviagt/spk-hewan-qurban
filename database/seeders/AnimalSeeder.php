@@ -18,6 +18,7 @@ class AnimalSeeder extends Seeder
             "name"=>"Sapi Proto",
             "animal_type_id"=>1,
             "user_id"=>1,
+            "image" => "sapi.jpg"
         ]);
     }
 }

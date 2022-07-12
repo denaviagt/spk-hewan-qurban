@@ -6,6 +6,13 @@
 
     <div class="content-wrapper">
 
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Daftar Hewan</li>
+            </ol>
+          </nav>
+
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -60,7 +67,7 @@
                                         {{ $animal->animalType->name }}
                                     </td>
                                     <td>
-                                        <img src="{{ asset('assets/img/face.jpg') }}" alt="">
+                                        <img src="{{ asset('images/'. $animal->image) }}" alt="" style="width:100px; height:100px" >
                                     </td>
                                     @foreach($animal->criteriaAnimals as $criteriaAnimal)
                                     <td>

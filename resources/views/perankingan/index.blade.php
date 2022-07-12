@@ -5,7 +5,13 @@
 @section('content')
 
     <div class="content-wrapper">
-
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb border-0">
+              <li class="breadcrumb-item"><a href="{{ url('/') }}">Dashboard</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Perankingan</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ $animal_type->name }}</li>
+            </ol>
+          </nav>
         <div class="col-lg-12 grid-margin stretch-card">
             <div class="card">
                 <div class="card-body">
@@ -26,11 +32,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @if($animal_type->animals->count() > 0)
-                                    <td colspan="{{ $criterias->count()+1 }}">
-                                        <b>{{ $animal_type->name }}</td>
-                                    </td>
-                                @endif
                                 @foreach($animal_type->animals as $animal)
                                     <tr>
                                         <td>{{ $animal->name }}</td>
@@ -96,11 +97,6 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @if($animal_type->animals->count() > 0)
-                                    <td colspan="{{ $criterias->count()+1 }}">
-                                        <b>{{ $animal_type->name }}</td>
-                                    </td>
-                                @endif
                                 @foreach($animal_type->animals as $animal)
                                     <tr>
                                         <td>{{ $animal->name }}</td>
@@ -135,11 +131,11 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @if($animal_type->animals->count() > 0)
+                                {{-- @if($animal_type->animals->count() > 0)
                                     <td colspan="3">
                                         <b>{{ $animal_type->name }}</td>
                                     </td>
-                                @endif
+                                @endif --}}
                                 @foreach($animal_type->animals->sortByDesc(function ($anim) use ($animal_type){
                                     return  $anim->criteriaAnimals->sum(function ($criteriaAnimal) use ($animal_type, $anim) {
                                                 return $criteriaAnimal->score/$criteriaAnimal->criteria->criteriaAnimals->filter(function($ca) use ($animal_type) {
