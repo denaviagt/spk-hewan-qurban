@@ -58,12 +58,12 @@ class AnimalController extends Controller
             [
                 'criteria_id' => 1,
                 'value' => $umur,
-                'score' => $this->scoreUmur($umur)
+                'score' => $this->scoreUmur($tipe_hewan, $umur)
             ],
             [
                 'criteria_id' => 2,
                 'value' => $berat,
-                'score' => $this->scoreBerat($berat)
+                'score' => $this->scoreBerat($tipe_hewan, $berat)
             ],
             [
                 'criteria_id' => 3,
@@ -130,17 +130,37 @@ class AnimalController extends Controller
         //
     }
 
-    private function scoreUmur($Umur)
+    private function scoreUmur($tipe_hewan, $Umur)
     {
-        if ($Umur < 2) return 0.01;
-        if ($Umur <= 3) return 1;
+        if ($tipe_hewan == 1) {
+            if ($Umur < 2) return 0.01;
+            if ($Umur <= 3) return 1;
+        }
+
+        if ($tipe_hewan == 2) {
+            if ($Umur < 1) return 0.01;
+            if ($Umur <= 2) return 1;
+        }
+
+        if ($tipe_hewan == 3) {
+            if ($Umur < 0.5) return 0.01;
+            if ($Umur <= 1.5) return 1;
+        }
+
         return 0.3;
     }
 
-    private function scoreBerat($Berat)
+    private function scoreBerat($tipe_hewan, $Berat)
     {
-        if($Berat < 200) return 0.2;
-        if ($Berat <= 300) return 0.7;
+        if ($tipe_hewan == 2 || $tipe_hewan == 3) {
+            if ($Berat < 23) return 0.2;
+            if ($Berat <= 28) return 0.7;
+        }
+
+        if ($tipe_hewan == 1) {
+            if ($Berat < 200) return 0.2;
+            if ($Berat <= 300) return 0.7;
+        }
 
         return 1;
     }
