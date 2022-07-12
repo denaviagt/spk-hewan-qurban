@@ -20,4 +20,13 @@ class CriteriaAnimal extends Model
     {
         return $this->belongsTo(Animal::class);
     }
+
+    public function normalizeMatrix($criterialAnimals) {
+        $type = $this->criteria->type;
+        if ('benefit' == strtolower($type)) {
+            return $this->score/$criterialAnimals->max('score');
+        }
+
+        return $criterialAnimals->min('score')/$this->score;
+    }
 }

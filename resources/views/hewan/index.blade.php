@@ -42,66 +42,12 @@
                                         {{ $criteria->criteria }}
                                     </th>
                                     @endforeach
-{{--                                        Umur--}}
-{{--                                    </th>--}}
-{{--                                    <th>--}}
-{{--                                        Berat--}}
-{{--                                    </th>--}}
-{{--                                    <th>--}}
-{{--                                        Warna--}}
-{{--                                    </th>--}}
-{{--                                    <th>--}}
-{{--                                        Jenis Kelamin--}}
-{{--                                    </th>--}}
-{{--                                    <th>--}}
-{{--                                        Bebas PMK--}}
-{{--                                    </th>--}}
                                     <th>
                                         Action
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="py-1">
-                                        1
-                                    </td>
-                                    <td>
-                                        Sapi 1
-                                    </td>
-                                    <td>
-                                        Sapi
-                                    </td>
-                                    <td>
-                                        <img src="{{ asset('assets/img/face.jpg') }}" alt="">
-                                    </td>
-                                    <td>
-                                        3 Tahun
-                                    </td>
-                                    <td>
-                                        100 Kg
-                                    </td>
-                                    <td>
-                                        Putih
-                                    </td>
-                                    <td>
-                                        Jantan
-                                    </td>
-                                    <td>
-                                        <label class="badge badge-success">Ya</label>
-                                    </td>
-                                    <td>
-                                        <a href="" class="btn btn-info btn-rounded btn-icon p-2"
-                                            style="width:36px !important; height:36px !important">
-                                            <i class="ti-pencil-alt"></i>
-                                        </a>
-                                        <a href="" class="btn btn-danger btn-rounded btn-icon p-2"
-                                            style="width:36px !important; height:36px !important">
-                                            <i class="mdi mdi-delete"></i>
-                                        </a>
-
-                                    </td>
-                                </tr>
                                 @foreach($animals as $animal)
                                 <tr>
                                     <td class="py-1">
