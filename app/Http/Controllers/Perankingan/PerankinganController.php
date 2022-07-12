@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Perankingan;
 
 use App\Http\Controllers\Controller;
-use App\Models\Animal;
+use App\Models\AnimalType;
 use App\Models\Criteria;
 use Illuminate\Http\Request;
 
@@ -17,8 +17,8 @@ class PerankinganController extends Controller
     public function index()
     {
         $criterias = Criteria::all();
-        $animals = Animal::all();
-        return view('penilaian.index', compact('criterias', 'animals'));
+        $animal_types = AnimalType::all();
+        return view('penilaian.index', compact('criterias', 'animal_types'));
     }
 
     /**
