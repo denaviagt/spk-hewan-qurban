@@ -28,7 +28,7 @@
             <div class="collapse" id="perankingan">
               <ul class="nav flex-column sub-menu">
                   @foreach(\App\Models\AnimalType::all() as $type)
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('/'.$type->id.'/perankingan') }}"> {{ $type->name }} </a></li>
+                      <li class="nav-item"> <a class="nav-link" href="{{ url('/perankingan/'.$type->id) }}"> {{ $type->name }} </a></li>
                   @endforeach
               </ul>
             </div>
