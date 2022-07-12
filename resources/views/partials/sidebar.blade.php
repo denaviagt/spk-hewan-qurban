@@ -34,10 +34,18 @@
             </div>
           </li>
            <li class="nav-item">
-               <a class="nav-link" href="#">
+               <a class="nav-link" data-toggle="collapse" href="#analisa" aria-expanded="false" aria-controls="analisa">
                    <i class="icon-paper menu-icon"></i>
                    <span class="menu-title">Hasil Analisa</span>
+                   <i class="menu-arrow"></i>
                </a>
+               <div class="collapse" id="analisa">
+                   <ul class="nav flex-column sub-menu">
+                       @foreach(\App\Models\AnimalType::all() as $type)
+                           <li class="nav-item"> <a class="nav-link" href="{{ url('/analisa/'.$type->id) }}"> {{ $type->name }} </a></li>
+                       @endforeach
+                   </ul>
+               </div>
            </li>
        </ul>
    </nav>
