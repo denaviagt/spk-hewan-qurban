@@ -18,7 +18,7 @@ class PerankinganController extends Controller
     {
         $criterias = Criteria::all();
         $animal_types = AnimalType::all();
-        return view('penilaian.index', compact('criterias', 'animal_types'));
+        return view('perankingan.index', compact('criterias', 'animal_types'));
     }
 
     /**
