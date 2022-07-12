@@ -26,7 +26,7 @@
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="#">
+               <a class="nav-link" href="{{ url('analisa') }}">
                    <i class="icon-paper menu-icon"></i>
                    <span class="menu-title">Hasil Analisa</span>
                </a>

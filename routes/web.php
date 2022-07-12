@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Analisa\AnalisaController;
 use App\Http\Controllers\Animal\AnimalController;
 use App\Http\Controllers\Perankingan\PerankinganController;
 use App\Models\Criteria;
@@ -38,6 +39,7 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::post('/hewan/add', [AnimalController::class, 'store']);
 
     Route::get('/perankingan', [PerankinganController::class, 'index']);
+    Route::get('/analisa', [AnalisaController::class, 'index']);
 });
 
 
