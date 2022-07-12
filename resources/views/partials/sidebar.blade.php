@@ -20,11 +20,19 @@
                </a>
            </li>
            <li class="nav-item">
-               <a class="nav-link" href="{{ url('perankingan') }}">
-                   <i class="icon-columns menu-icon"></i>
-                   <span class="menu-title">Perankingan</span>
-               </a>
-           </li>
+            <a class="nav-link" data-toggle="collapse" href="#perankingan" aria-expanded="false" aria-controls="tables">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Perankingan</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="perankingan">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/1') }}"> Sapi </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/2') }}"> Kambing </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ url('perankingan/3') }}"> Domba </a></li>
+              </ul>
+            </div>
+          </li>
            <li class="nav-item">
                <a class="nav-link" href="#">
                    <i class="icon-paper menu-icon"></i>

@@ -14,12 +14,6 @@ class PerankinganController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $criterias = Criteria::all();
-        $animal_types = AnimalType::all();
-        return view('perankingan.index', compact('criterias', 'animal_types'));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +44,9 @@ class PerankinganController extends Controller
      */
     public function show($id)
     {
-        //
+        $criterias = Criteria::all();
+        $animal_type = AnimalType::find($id);
+        return view('perankingan.index', compact('criterias', 'animal_type'));
     }
 
     /**

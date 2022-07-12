@@ -37,7 +37,7 @@ Route::group([ 'middleware' => 'auth'], function () {
     Route::get('/hewan/add', [AnimalController::class, 'create']);
     Route::post('/hewan/add', [AnimalController::class, 'store']);
 
-    Route::get('/perankingan', [PerankinganController::class, 'index']);
+    Route::get('/perankingan/{id}', [PerankinganController::class, 'show']);
 });
 
 
