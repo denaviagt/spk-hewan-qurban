@@ -44,35 +44,5 @@ class CriteriaAnimalSeeder extends Seeder
             "value"=>"Ya",
             "score"=>1
         ]);
-        DB::table('criteria_animals')->insert([
-            "animal_id"=>2,
-            "criteria_id"=>1,
-            "value"=>"1",
-            "score"=>0.01
-        ]);
-        DB::table('criteria_animals')->insert([
-            "animal_id"=>2,
-            "criteria_id"=>2,
-            "value"=>"300",
-            "score"=>1
-        ]);
-        DB::table('criteria_animals')->insert([
-            "animal_id"=>2,
-            "criteria_id"=>3,
-            "value"=>"Coklat",
-            "score"=>0.25
-        ]);
-        DB::table('criteria_animals')->insert([
-            "animal_id"=>2,
-            "criteria_id"=>4,
-            "value"=>"Betina",
-            "score"=>0.5
-        ]);
-        DB::table('criteria_animals')->insert([
-            "animal_id"=>2,
-            "criteria_id"=>5,
-            "value"=>"Ya",
-            "score"=>1
-        ]);
     }
 }
