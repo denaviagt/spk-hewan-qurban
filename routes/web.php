@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Analisa\AnalisaController;
 use App\Http\Controllers\Animal\AnimalController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Perankingan\PerankinganController;
 use App\Models\Criteria;
 use Illuminate\Support\Facades\Auth;
@@ -22,13 +23,11 @@ Auth::routes();
 Auth::routes(['register' => false]);
 
 Route::group([ 'middleware' => 'auth'], function () {
-    Route::get('/', function () {
-        return view('dashboard.index');
-    });
+    Route::get('/', [DashboardController::class, 'index']);
 
-    Route::get('/dashboard', function () {
-        return view('dashboard.index');
-    });
+    // Route::get('/dashboard', function () {
+    //     return view('dashboard.index');
+    // });
 
     Route::get('/kriteria', function () {
         return view('kriteria.index', ["data" => Criteria::all()]);
