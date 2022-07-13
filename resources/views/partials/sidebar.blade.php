@@ -2,7 +2,7 @@
    <nav class="sidebar sidebar-offcanvas" id="sidebar">
        <ul class="nav">
            <li class="nav-item">
-               <a class="nav-link" href="{{ url('dashboard') }}">
+               <a class="nav-link" href="{{ url('/') }}">
                    <i class="icon-grid menu-icon"></i>
                    <span class="menu-title">Dashboard</span>
                </a>
@@ -19,20 +19,7 @@
                    <span class="menu-title">Daftar Hewan</span>
                </a>
            </li>
-           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#perankingan" aria-expanded="false" aria-controls="perankingan">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Perankingan</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="perankingan">
-              <ul class="nav flex-column sub-menu">
-                  @foreach(\App\Models\AnimalType::all() as $type)
-                      <li class="nav-item"> <a class="nav-link" href="{{ url('/perankingan/'.$type->id) }}"> {{ $type->name }} </a></li>
-                  @endforeach
-              </ul>
-            </div>
-          </li>
+           
            <li class="nav-item">
                <a class="nav-link" data-toggle="collapse" href="#analisa" aria-expanded="false" aria-controls="analisa">
                    <i class="icon-paper menu-icon"></i>
@@ -47,6 +34,20 @@
                    </ul>
                </div>
            </li>
+           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#perankingan" aria-expanded="false" aria-controls="perankingan">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Perankingan</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="perankingan">
+              <ul class="nav flex-column sub-menu">
+                  @foreach(\App\Models\AnimalType::all() as $type)
+                      <li class="nav-item"> <a class="nav-link" href="{{ url('/perankingan/'.$type->id) }}"> {{ $type->name }} </a></li>
+                  @endforeach
+              </ul>
+            </div>
+          </li>
        </ul>
    </nav>
    <!-- partial -->
