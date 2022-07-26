@@ -32,11 +32,11 @@ class Animal extends Model
 
     public function predicate() {
         $sumNormalized = $this->sumNormalized();
-        if ($sumNormalized < 0.6) {
+        if ($sumNormalized <= 0.6) {
             return "Tidak Sah";
         }
 
-        if ($sumNormalized >= 0.6 && $sumNormalized <= 0.85) {
+        if ($sumNormalized > 0.6 && $sumNormalized <= 0.85) {
             return "Sah";
         }
 
