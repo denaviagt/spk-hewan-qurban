@@ -42,7 +42,7 @@
                                             {{ $animal->sumNormalized()  }}
                                         </td>
                                         <td>
-                                            {{ $animal->sumNormalized()  }}
+                                            {{ $animal->predicate()  }}
                                         </td>
                                     </tr>
                                 @endforeach

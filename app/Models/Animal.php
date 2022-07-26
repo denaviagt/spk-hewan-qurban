@@ -29,4 +29,19 @@ class Animal extends Model
                 })) * ($criteriaAnimal->criteria->weight / 100);
         });
     }
+
+    public function predicate() {
+        $sumNormalized = $this->sumNormalized();
+        if ($sumNormalized < 0.6) {
+            return "Tidak Sah";
+        }
+
+        if ($sumNormalized >= 0.6 && $sumNormalized <= 0.85) {
+            return "Sah";
+        }
+
+        if ($sumNormalized > 0.85) {
+            return "Sah dan sangat baik";
+        }
+    }
 }
