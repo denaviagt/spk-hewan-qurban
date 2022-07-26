@@ -39,11 +39,7 @@
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $animal->name }}</td>
                                         <td>
-                                            {{ $animal->criteriaAnimals->sum(function ($criteriaAnimal) use ($animal_type, $animal) {
-                                                    return $criteriaAnimal->normalizeMatrix($criteriaAnimal->criteria->criteriaAnimals->filter(function($ca) use ($animal_type) {
-                                                        return $ca->animal->animalType->id == $animal_type->id;
-                                                    })) * ($criteriaAnimal->criteria->weight/100);
-                                                })  }}
+                                            {{ $animal->sumNormalized()  }}
                                         </td>
                                         <td>
                                             {{ $animal->sumNormalized()  }}
