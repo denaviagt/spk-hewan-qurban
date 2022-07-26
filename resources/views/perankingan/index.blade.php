@@ -24,14 +24,10 @@
                                 <th>No</th>
                                 <th>Hewan</th>
                                 <th>Nilai</th>
+                                <th>Predikat</th>
                             </tr>
                             </thead>
                             <tbody>
-                                {{-- @if($animal_type->animals->count() > 0)
-                                    <td colspan="3">
-                                        <b>{{ $animal_type->name }}</td>
-                                    </td>
-                                @endif --}}
                                 @foreach($animal_type->animals->sortByDesc(function ($anim) use ($animal_type){
                                     return  $anim->criteriaAnimals->sum(function ($criteriaAnimal) use ($animal_type, $anim) {
                                                 return $criteriaAnimal->score/$criteriaAnimal->criteria->criteriaAnimals->filter(function($ca) use ($animal_type) {
@@ -48,6 +44,9 @@
                                                         return $ca->animal->animalType->id == $animal_type->id;
                                                     })) * ($criteriaAnimal->criteria->weight/100);
                                                 })  }}
+                                        </td>
+                                        <td>
+                                            {{ $animal->sumNormalized()  }}
                                         </td>
                                     </tr>
                                 @endforeach

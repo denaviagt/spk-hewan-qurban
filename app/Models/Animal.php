@@ -20,4 +20,13 @@ class Animal extends Model
     {
         return $this->hasMany(CriteriaAnimal::class);
     }
+
+    public function sumNormalized()
+    {
+        return $this->criteriaAnimals->map(function ($criteriaAnimal) {
+            return $criteriaAnimal->normalizeMatrix($criteriaAnimal->criteria->criteriaAnimals->filter(function ($ca) {
+                    return $ca->animal->animalType->id == $this->animalType->id;
+                })) * ($criteriaAnimal->criteria->weight / 100);
+        })->sum();
+    }
 }
